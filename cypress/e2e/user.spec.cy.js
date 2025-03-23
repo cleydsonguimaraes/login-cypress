@@ -10,6 +10,13 @@ describe('Orange HRM Tests', () => {
     dashboardGrid: '.orangehrm-dashboard-grid',
     wrongCredentialAlert: '.oxd-text',
     myInfoButton: "[href='/web/index.php/pim/viewMyDetails']",
+    firstNameField: "[name='firstName']",
+    lastNameField: "[name='lastName']",
+    gerericField: ".oxd-input--active",
+    dateField:"[placeholder='yyyy-mm-dd']",
+    dateCloseButton: ".--close",
+    saveButton: "[type='submit']",
+    saveCloseButton: ".oxd-toast-close",
   }
 
   it.only('User Info Update - Sucess', () => {
@@ -20,6 +27,20 @@ describe('Orange HRM Tests', () => {
     cy.location('pathname').should('equal', '/web/index.php/dashboard/index')
     cy.get(selectorsList.dashboardGrid)
     cy.get(selectorsList.myInfoButton).click()
+    cy.get(selectorsList.firstNameField).clear().type("Cleydson")
+    cy.get(selectorsList.lastNameField).clear().type("Silva")
+    cy.get(selectorsList.gerericField).eq(3).clear().type("guimaraes")
+    cy.get(selectorsList.gerericField).eq(4).clear().type("4002")
+    cy.get(selectorsList.gerericField).eq(5).clear().type("8922")
+    cy.get(selectorsList.gerericField).eq(6).clear().type("110710")
+    cy.get(selectorsList.dateField).eq(0).clear().type("2025-05-17")
+    cy.get(selectorsList.dateCloseButton).click()
+    cy.get(selectorsList.gerericField).eq(8).clear().type("SSN")
+    cy.get(selectorsList.gerericField).eq(9).clear().type("SIN")
+    cy.get(selectorsList.saveButton).eq(0).click()
+    cy.get('body').should('contain', 'Successfully Updated')
+    cy.get(selectorsList.saveCloseButton).click()
+    
   })
   it('Login - Fail', () => {
     cy.visit('/auth/login')
