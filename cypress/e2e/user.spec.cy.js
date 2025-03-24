@@ -14,7 +14,7 @@ describe('Orange HRM Tests', () => {
     middleNameField: "[name='middleName']",
     lastNameField: "[name='lastName']",
     gerericField: ".oxd-input--active",
-    dateField:"[placeholder='yyyy-mm-dd']",
+    dateField:"[placeholder='yyyy-dd-mm']",
     dateCloseButton: ".--close",
     saveButton: "[type='submit']",
     saveCloseButton: ".oxd-toast-close",
@@ -23,7 +23,7 @@ describe('Orange HRM Tests', () => {
     sexField: ".--gender-grouped-field",
   }
 
-  it.skip('User Info Update(Orange) - Sucess', () => {
+  it.only('User Info Update(Orange) - Sucess', () => {
     cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
@@ -49,7 +49,7 @@ describe('Orange HRM Tests', () => {
     cy.get('body').should('contain', 'Successfully Updated')
     cy.get(selectorsList.saveCloseButton).click()
   })
-  it.only('User Info Update(Green) - Sucess', () => {
+  it('User Info Update(Green) - Sucess', () => {
     cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userSuccess.username)
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
