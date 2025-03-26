@@ -1,9 +1,9 @@
 {
-  "userSuccess":{
+  "userSuccess": {
     "username": "Admin",
     "password": "admin123"
   },
-  "usernameFail": {
+  "userFail": {
     "username": "test",
     "password": "test"
   }

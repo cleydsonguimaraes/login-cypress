@@ -22,14 +22,14 @@ class MyInfoPage {
     cy.get(this.selectorsList().lastNameField).clear().type(lastname);
     //cy.get(this.selectorsList().gerericField).eq(3).clear().type("CGS");
   }
-  employeeData(employeeid, otherid, driverlicense, licensedate ) {
+  employeeData(employeeid, otherid, driverlicense, licensedate) {
     cy.get(this.selectorsList().gerericField).eq(3).clear().type(employeeid);
     cy.get(this.selectorsList().gerericField).eq(4).clear().type(otherid);
     cy.get(this.selectorsList().gerericField).eq(5).clear().type(driverlicense);
     cy.get(this.selectorsList().dateField).eq(0).clear().type(licensedate);
     cy.get(this.selectorsList().dateCloseButton).click();
   }
-  otherEmployeeData(nacionality, maritalstatus, dateofbirth,sex) {
+  otherEmployeeData(nacionality, maritalstatus, dateofbirth, sex) {
     cy.get(this.selectorsList().selectListField).eq(0).click();
     cy.get(this.selectorsList().listField).contains(nacionality).click();
     cy.get(this.selectorsList().selectListField).eq(1).click();
